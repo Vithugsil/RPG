@@ -2,33 +2,23 @@ package org.example.entities
 
 import org.example.interfaces.IAttributes
 
+
 //Strategy context
 class Character(val name: String, private val breed: IAttributes) {
 
-    private val life = 10 + breed.constitution()
     var skills = Skills()
+    val life = 10
 
-    init {
-        addSkills()
-    }
-
-    private fun addSkills() {
-        skills.strength += breed.strength()
-        skills.dexterity += breed.dexterity()
-        skills.constitution += breed.constitution()
-        skills.intelligence += breed.intelligence()
-        skills.wisdom += breed.wisdom()
-        skills.charisma += breed.charisma()
-    }
 
     override fun toString(): String {
         return "${name}(${breed::class.simpleName}) attributes:\n" +
-                "Total Life: ${life}\n" +
-                "Strength: ${skills.strength} (+${Modifiers.modifierCost(skills.strength)})\n" +
-                "Dexterity: ${skills.dexterity} (+${skills.dexterity})\n" +
-                "Constitution: ${skills.constitution} (+${skills.constitution})\n" +
-                "Intelligence: ${skills.intelligence} (+${skills.intelligence})\n" +
-                "Wisdom: ${skills.wisdom} (+${skills.wisdom})\n" +
-                "Charisma: ${skills.charisma} (+${skills.charisma})"
+                "Total Life: $life +(${Modifiers.modifierAttribute(skills.constitution)})\n" +
+                "Base Point | Breed modifier | Modifier\n" +
+                "[1] - Strength: ${skills.strength} +[${breed.strength()}]  +(${Modifiers.modifierAttribute(skills.strength)})\n" +
+                "[2] - Dexterity: ${skills.dexterity} +[${breed.dexterity()}] +(${Modifiers.modifierAttribute(skills.dexterity)})\n" +
+                "[3] - Constitution: ${skills.constitution} +[${breed.constitution()}] +(${Modifiers.modifierAttribute(skills.constitution)})\n" +
+                "[4] - Intelligence: ${skills.intelligence} +[${breed.intelligence()}] +(${Modifiers.modifierAttribute(skills.intelligence)})\n" +
+                "[5] - Wisdom: ${skills.wisdom} +[${breed.wisdom()}] +(${Modifiers.modifierAttribute(skills.wisdom)})\n" +
+                "[6] - Charisma: ${skills.charisma}  +[${breed.charisma()}] +(${Modifiers.modifierAttribute(skills.charisma)})"
     }
 }

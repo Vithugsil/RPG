@@ -17,6 +17,18 @@ class Modifiers {
             }
             return cost
         }
+
+        fun modifierAttribute(attributeValue: Int): Int {
+            var modifier = 0
+            when (attributeValue) {
+                8, 9 -> modifier = -1
+                10, 11 -> modifier = 0
+                12, 13 -> modifier = 1
+                14, 15 -> modifier = 2
+            }
+            return modifier
+        }
+
     }
 
 }
