@@ -1,6 +1,7 @@
 package org.example.entities
 
 import org.example.enums.Attributes
+import org.example.view.Display as dp
 
 class DistributionPoints {
     companion object {
@@ -9,119 +10,55 @@ class DistributionPoints {
         var attributeFlag = true
         fun distributePoints(character: Character, attribute: Attributes, points: Int) {
 
-            if (totalPoints >= points && totalPoints != 0) {
+            if (totalPoints > 0) {
                 when (attribute) {
                     Attributes.STRENGTH -> {
-                        if (character.skills.strength + points <= 15) {
-                            for (i in 1..points) {
-                                val cost =
-                                    Modifiers.modifierCost(character.skills.strength + 1)
-
-                                if (totalPoints > 0 && (totalPoints - cost) >= 0) {
-                                    totalPoints -= cost
-                                    character.skills.strength += 1
-                                } else {
-                                    println("You do not have enough points remaining.")
-                                    println()
-                                }
-                            }
+                        if (points in 8..15) {
+                            totalPoints -= Modifiers.modifierCost(points)
+                            character.skills.strength = points
                         } else {
-                            println("The strength attribute value cannot exceed 15.")
+                            dp.rangePoints(points)
                         }
                     }
-
                     Attributes.DEXTERITY -> {
-                        if (character.skills.dexterity + points <= 15) {
-                            for (i in 1..points) {
-                                val cost =
-                                    Modifiers.modifierCost(character.skills.dexterity + 1)
-
-                                if (totalPoints > 0 && (totalPoints - cost) >= 0) {
-                                    totalPoints -= cost
-                                    character.skills.dexterity += 1
-                                } else {
-                                    println("You do not have enough points remaining.")
-                                    println()
-                                }
-                            }
+                        if (points in 8..15) {
+                            totalPoints -= Modifiers.modifierCost(points)
+                            character.skills.dexterity = points
                         } else {
-                            println("The dexterity attribute value cannot exceed 15")
+                            dp.rangePoints(points)
                         }
                     }
-
                     Attributes.CONSTITUTION -> {
-                        if (character.skills.constitution + points <= 15) {
-                            for (i in 1..points) {
-                                val cost =
-                                    Modifiers.modifierCost(character.skills.constitution + 1)
-
-                                if (totalPoints > 0 && (totalPoints - cost) >= 0) {
-                                    totalPoints -= cost
-                                    character.skills.constitution += 1
-                                } else {
-                                    println("You do not have enough points remaining.")
-                                    println()
-                                }
-                            }
+                        if (points in 8..15) {
+                            totalPoints -= Modifiers.modifierCost(points)
+                            character.skills.constitution = points
                         } else {
-                            println("The constitution attribute value cannot exceed 15")
+                            dp.rangePoints(points)
                         }
                     }
-
                     Attributes.INTELLIGENCE -> {
-                        if (character.skills.intelligence + points <= 15) {
-                            for (i in 1..points) {
-                                val cost =
-                                    Modifiers.modifierCost(character.skills.intelligence + 1)
-
-                                if (totalPoints > 0 && (totalPoints - cost) >= 0) {
-                                    totalPoints -= cost
-                                    character.skills.intelligence += 1
-                                } else {
-                                    println("You do not have enough points remaining.")
-                                    println()
-                                }
-                            }
+                        if (points in 8..15) {
+                            totalPoints -= Modifiers.modifierCost(points)
+                            character.skills.intelligence = points
                         } else {
-                            println("The intelligence attribute value cannot exceed 15")
+                            dp.rangePoints(points)
                         }
                     }
-
                     Attributes.WISDOM -> {
-                        if (character.skills.wisdom + points <= 15) {
-                            for (i in 1..points) {
-                                val cost =
-                                    Modifiers.modifierCost(character.skills.wisdom + 1)
-
-                                if (totalPoints > 0 && (totalPoints - cost) >= 0) {
-                                    totalPoints -= cost
-                                    character.skills.wisdom += 1
-                                } else {
-                                    println("You do not have enough points remaining.")
-                                    println()
-                                }
-                            }
+                        if (points in 8..15) {
+                            totalPoints -= Modifiers.modifierCost(points)
+                            character.skills.wisdom = points
                         } else {
-                            println("The wisdom attribute value cannot exceed 15")
+                            dp.rangePoints(points)
                         }
                     }
 
                     Attributes.CHARISMA -> {
-                        if (character.skills.charisma + points <= 15) {
-                            for (i in 1..points) {
-                                val cost =
-                                    Modifiers.modifierCost(character.skills.charisma + 1)
-
-                                if (totalPoints > 0 && (totalPoints - cost) >= 0) {
-                                    totalPoints -= cost
-                                    character.skills.charisma += 1
-                                } else {
-                                    println("You do not have enough points remaining.")
-                                    println()
-                                }
-                            }
+                        if (points in 8..15) {
+                            totalPoints -= Modifiers.modifierCost(points)
+                            character.skills.charisma = points
                         } else {
-                            println("The charisma attribute value cannot exceed 15")
+                            dp.rangePoints(points)
                         }
                     }
                 }
@@ -163,6 +100,9 @@ class DistributionPoints {
             return userChoice
         }
 
+        fun verifyIncreaseOrDecrease(choice: String) : Boolean {
+            return choice.startsWith('I') || choice.startsWith('i')
+        }
     }
 
 }

@@ -7,12 +7,12 @@ import org.example.interfaces.IAttributes
 class Character(val name: String, private val breed: IAttributes) {
 
     var skills = Skills()
-    val life = 10
+    var life = 10
 
 
     override fun toString(): String {
         return "${name}(${breed::class.simpleName}) attributes:\n" +
-                "Total Life: $life +(${Modifiers.modifierAttribute(skills.constitution)})\n" +
+                "Total Life: ${life + (skills.constitution + Modifiers.modifierAttribute(skills.constitution))} \n" +
                 "Base Point | Breed modifier | Modifier\n" +
                 "[1] - Strength: ${skills.strength} +[${breed.strength()}]  +(${Modifiers.modifierAttribute(skills.strength)})\n" +
                 "[2] - Dexterity: ${skills.dexterity} +[${breed.dexterity()}] +(${Modifiers.modifierAttribute(skills.dexterity)})\n" +

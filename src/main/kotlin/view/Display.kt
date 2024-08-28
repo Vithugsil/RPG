@@ -34,16 +34,31 @@ class Display {
             )
         }
 
+        fun rangePoints(point: Int) {
+            if (point > 15) {
+                println("\nThe strength attribute value cannot exceed 15.\n")
+            }else if(point < 8){
+                println("\nThe strength attribute value cannot be lower than 8.\n")
+            }
+        }
+
         fun showAttributes(character: Character) {
             println(character.toString())
             println("Which attribute you would like to increase?")
         }
-        fun askPoints(){
-            println("How many points do you want increase ?")
+
+        fun askPoints() {
+            println("How many points do you wanna increase ?")
         }
 
-        fun exitOpt(){
+        fun increaseOrDecrease() {
+            println("Do you want to increase or decrease attribute")
+        }
+
+        fun exitOpt() {
             println("\n[0] - Exit")
         }
+
+
     }
 }
