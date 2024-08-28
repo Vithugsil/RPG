@@ -28,7 +28,7 @@ class DistributionPoints {
 
                     Attributes.DEXTERITY -> {
                         if (points in 8..15) {
-                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                            if (totalPoints - Modifiers.modifierCost(points) >= 0) {
                                 totalPoints -= Modifiers.modifierCost(points)
                                 character.skills.dexterity = points
                             } else {
@@ -41,7 +41,7 @@ class DistributionPoints {
 
                     Attributes.CONSTITUTION -> {
                         if (points in 8..15) {
-                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                            if (totalPoints - Modifiers.modifierCost(points) >= 0) {
                                 totalPoints -= Modifiers.modifierCost(points)
                                 character.skills.constitution = points
                             } else {
@@ -54,7 +54,7 @@ class DistributionPoints {
 
                     Attributes.INTELLIGENCE -> {
                         if (points in 8..15) {
-                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                            if (totalPoints - Modifiers.modifierCost(points) >= 0) {
                                 totalPoints -= Modifiers.modifierCost(points)
                                 character.skills.intelligence = points
                             } else {
@@ -67,7 +67,7 @@ class DistributionPoints {
 
                     Attributes.WISDOM -> {
                         if (points in 8..15) {
-                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                            if (totalPoints - Modifiers.modifierCost(points) >= 0) {
                                 totalPoints -= Modifiers.modifierCost(points)
                                 character.skills.wisdom = points
                             } else {
@@ -80,7 +80,7 @@ class DistributionPoints {
 
                     Attributes.CHARISMA -> {
                         if (points in 8..15) {
-                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                            if (totalPoints - Modifiers.modifierCost(points) >= 0) {
                                 totalPoints -= Modifiers.modifierCost(points)
                                 character.skills.charisma = points
                             } else {
