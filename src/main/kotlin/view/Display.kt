@@ -1,11 +1,20 @@
 package org.example.view
 
 import org.example.entities.Character
+import org.example.entities.DistributionPoints
 
 class Display {
     companion object {
         fun welcome() {
             println("Welcome to your new RPG, pleaser begin creating your character")
+        }
+
+        fun firstChoice(){
+            println("[1] - Create character\n[2] - Exit")
+        }
+
+        fun hello(){
+            println("\nChoose what you prefer sir.")
         }
 
         fun nameLabel() {
@@ -37,7 +46,7 @@ class Display {
         fun rangePoints(point: Int) {
             if (point > 15) {
                 println("\nThe strength attribute value cannot exceed 15.\n")
-            }else if(point < 8){
+            } else if (point < 8) {
                 println("\nThe strength attribute value cannot be lower than 8.\n")
             }
         }
@@ -59,6 +68,13 @@ class Display {
             println("\n[0] - Exit")
         }
 
+        fun notEnoughPoints() {
+            print("not enough points")
+        }
+
+        fun shouwPoints(){
+            println("\nYou have ${DistributionPoints.totalPoints} points left\n")
+        }
 
     }
 }

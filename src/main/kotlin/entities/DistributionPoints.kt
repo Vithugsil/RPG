@@ -3,6 +3,7 @@ package org.example.entities
 import org.example.enums.Attributes
 import org.example.view.Display as dp
 
+
 class DistributionPoints {
     companion object {
 
@@ -14,40 +15,64 @@ class DistributionPoints {
                 when (attribute) {
                     Attributes.STRENGTH -> {
                         if (points in 8..15) {
-                            totalPoints -= Modifiers.modifierCost(points)
-                            character.skills.strength = points
+                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                                totalPoints -= Modifiers.modifierCost(points)
+                                character.skills.strength = points
+                            } else {
+                                dp.notEnoughPoints()
+                            }
                         } else {
                             dp.rangePoints(points)
                         }
                     }
+
                     Attributes.DEXTERITY -> {
                         if (points in 8..15) {
-                            totalPoints -= Modifiers.modifierCost(points)
-                            character.skills.dexterity = points
+                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                                totalPoints -= Modifiers.modifierCost(points)
+                                character.skills.dexterity = points
+                            } else {
+                                dp.notEnoughPoints()
+                            }
                         } else {
                             dp.rangePoints(points)
                         }
                     }
+
                     Attributes.CONSTITUTION -> {
                         if (points in 8..15) {
-                            totalPoints -= Modifiers.modifierCost(points)
-                            character.skills.constitution = points
+                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                                totalPoints -= Modifiers.modifierCost(points)
+                                character.skills.constitution = points
+                            } else {
+                                dp.notEnoughPoints()
+                            }
                         } else {
                             dp.rangePoints(points)
                         }
                     }
+
                     Attributes.INTELLIGENCE -> {
                         if (points in 8..15) {
-                            totalPoints -= Modifiers.modifierCost(points)
-                            character.skills.intelligence = points
+                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                                totalPoints -= Modifiers.modifierCost(points)
+                                character.skills.intelligence = points
+                            } else {
+                                dp.notEnoughPoints()
+                            }
                         } else {
                             dp.rangePoints(points)
                         }
                     }
+
                     Attributes.WISDOM -> {
                         if (points in 8..15) {
-                            totalPoints -= Modifiers.modifierCost(points)
-                            character.skills.wisdom = points
+                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                                totalPoints -= Modifiers.modifierCost(points)
+                                character.skills.wisdom = points
+                            } else {
+                                dp.notEnoughPoints()
+                            }
                         } else {
                             dp.rangePoints(points)
                         }
@@ -55,8 +80,12 @@ class DistributionPoints {
 
                     Attributes.CHARISMA -> {
                         if (points in 8..15) {
-                            totalPoints -= Modifiers.modifierCost(points)
-                            character.skills.charisma = points
+                            if (totalPoints - Modifiers.modifierCost(points) > 0) {
+                                totalPoints -= Modifiers.modifierCost(points)
+                                character.skills.charisma = points
+                            } else {
+                                dp.notEnoughPoints()
+                            }
                         } else {
                             dp.rangePoints(points)
                         }
@@ -100,7 +129,7 @@ class DistributionPoints {
             return userChoice
         }
 
-        fun verifyIncreaseOrDecrease(choice: String) : Boolean {
+        fun verifyIncreaseOrDecrease(choice: String): Boolean {
             return choice.startsWith('I') || choice.startsWith('i')
         }
     }
