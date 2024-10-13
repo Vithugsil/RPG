@@ -129,9 +129,81 @@ class DistributionPoints {
             return userChoice
         }
 
-        fun verifyIncreaseOrDecrease(choice: String): Boolean {
-            return choice.startsWith('I') || choice.startsWith('i')
+        fun refundPoints(character: Character, attribute: Attributes, points: Int) {
+            when (attribute) {
+                Attributes.STRENGTH -> {
+                    val previousPoints = character.skills.strength
+                    if (points in 8..15 && points < previousPoints) {
+                        val refund = Modifiers.modifierCost(points)
+                        totalPoints += refund
+                        character.skills.strength = points
+                    } else {
+                        dp.rangePoints(points)
+                    }
+                }
+
+                Attributes.DEXTERITY -> {
+                    val previousPoints = character.skills.dexterity
+                    if (points in 8..15 && points < previousPoints) {
+                        val refund = Modifiers.modifierCost(points)
+                        totalPoints += refund
+                        character.skills.dexterity = points
+                    } else {
+                        dp.rangePoints(points)
+                    }
+                }
+
+                Attributes.CONSTITUTION -> {
+                    val previousPoints = character.skills.constitution
+                    if (points in 8..15 && points < previousPoints) {
+                        val refund = Modifiers.modifierCost(points)
+                        totalPoints += refund
+                        character.skills.constitution = points
+                    } else {
+                        dp.rangePoints(points)
+                    }
+                }
+
+                Attributes.INTELLIGENCE -> {
+                    val previousPoints = character.skills.intelligence
+                    if (points in 8..15 && points < previousPoints) {
+                        val refund = Modifiers.modifierCost(points)
+                        totalPoints += refund
+                        character.skills.intelligence = points
+                    } else {
+                        dp.rangePoints(points)
+                    }
+                }
+
+                Attributes.WISDOM -> {
+                    val previousPoints = character.skills.wisdom
+                    if (points in 8..15 && points < previousPoints) {
+                        val refund = Modifiers.modifierCost(points)
+                        totalPoints += refund
+                        character.skills.wisdom = points
+                    } else {
+                        dp.rangePoints(points)
+                    }
+                }
+
+                Attributes.CHARISMA -> {
+                    val previousPoints = character.skills.charisma
+                    if (points in 8..15 && points < previousPoints) {
+                        val refund = Modifiers.modifierCost(points)
+                        totalPoints += refund
+                        character.skills.charisma = points
+                    } else {
+                        dp.rangePoints(points)
+                    }
+                }
+            }
         }
+
+
+
+
+
+
     }
 
 }

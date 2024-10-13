@@ -26,6 +26,7 @@ fun main() {
                 dp.askPoints()
                 val pointsInput = readln().toInt()
                 pt.distributePoints(character, skillChoice, pointsInput)
+                pt.refundPoints(character, skillChoice, pointsInput)
             }
             println("\nHere's you character")
             println(character.toString())
