@@ -25,8 +25,10 @@ fun main() {
                 val skillChoice = pt.verifyChoice(choice)
                 dp.askPoints()
                 val pointsInput = readln().toInt()
+                if(pointsInput > character.skills.wisdom){
+                    pt.refundPoints(character, skillChoice, pointsInput)
+                }
                 pt.distributePoints(character, skillChoice, pointsInput)
-                pt.refundPoints(character, skillChoice, pointsInput)
             }
             println("\nHere's you character")
             println(character.toString())
