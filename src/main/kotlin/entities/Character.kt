@@ -3,8 +3,9 @@ package org.example.entities
 import org.example.interfaces.IAttributes
 
 
+
 //Strategy context
-class Character(val name: String, private val breed: IAttributes) {
+class Character(val name: String, val breed: IAttributes) {
 
     var skills = Skills()
     var life = 10

@@ -1,6 +1,8 @@
 package org.example.entities
 
-class Skills {
+
+
+class Skills  {
     var strength = 8
     var dexterity = 8
     var constitution = 8
