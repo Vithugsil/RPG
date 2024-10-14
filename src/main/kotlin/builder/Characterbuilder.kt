@@ -44,5 +44,16 @@ class Characterbuilder {
             }
             return char
         }
+
+        fun selectClass(number: Int) : String {
+            return when(number){
+                1 -> "Warrior"
+                2 -> "Mage"
+                3 -> "Rogue"
+                4 -> "Cleric"
+                5 -> "Druid"
+                else -> "Select Breed"
+            }
+        }
     }
 }

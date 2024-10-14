@@ -18,6 +18,7 @@ fun main() {
             dp.breedLabel()
             val breedInput = readln().toInt()
             val character = Characterbuilder.build(nameInput, breedInput)
+            val myClass = Characterbuilder.selectClass(1)
             while (pt.totalPoints > 0) {
                 dp.shouwPoints()
                 dp.showAttributes(character)
@@ -27,11 +28,13 @@ fun main() {
                 val pointsInput = readln().toInt()
                 if(pointsInput > character.skills.wisdom){
                     pt.refundPoints(character, skillChoice, pointsInput)
+
                 }
                 pt.distributePoints(character, skillChoice, pointsInput)
             }
             println("\nHere's you character")
             println(character.toString())
+            println(myClass)
             break
         }
     }
